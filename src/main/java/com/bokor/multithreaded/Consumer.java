@@ -10,5 +10,5 @@ public interface Consumer<INPUT, OUTPUT> extends Closeable {
     /**
      * Consume the results of an execution
      */
-    void consume(INPUT input, OUTPUT output);
+    void consume(INPUT input, OUTPUT output, long executionTime);
 }
