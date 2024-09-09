@@ -1,6 +1,8 @@
 # Multithreaded Utilities
 A framework for running multithreaded tasks.
 
+[![Build](https://github.com/davidbokor/multithreaded-utils/actions/workflows/gradle.yml/badge.svg)](https://github.com/davidbokor/multithreaded-utils/actions/workflows/gradle.yml)
+
 ## Step 1
 Implement a producer for generating input for the executor.
 
