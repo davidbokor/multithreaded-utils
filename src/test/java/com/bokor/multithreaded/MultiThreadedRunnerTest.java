@@ -3,6 +3,7 @@ package com.bokor.multithreaded;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -16,11 +17,15 @@ class MultiThreadedRunnerTest {
         int count = 1000;
         int threads = 10;
 
-        Producer<Integer> producer = new IterableProducer<>(IntStream.rangeClosed(1, count).boxed().collect(Collectors.toList()));
+        Producer<Integer> producer = IterableProducer.from(IntStream.rangeClosed(1, count).boxed());
         AccumulatingConsumer<Integer, Double> consumer = new AccumulatingConsumer<>();
         Executor<Integer, Double> executor = new Executor<>() {
             @Override
             public Double execute(Integer request) {
+                try {
+                    Thread.sleep(ThreadLocalRandom.current().nextLong(30));
+                } catch (InterruptedException ignore) {
+                }
                 return request.doubleValue() / 100.0;
             }
 

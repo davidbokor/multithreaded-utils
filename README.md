@@ -6,11 +6,10 @@ Implement a producer for generating input for the executor.
 
 For example, a producer that returns integers from 1 to 100
 ```java
-Producer<Integer> producer = new IterableProducer<>(
+Producer<Integer> producer = IterableProducer.from(
   IntStream
     .rangeClosed(1, 100)
     .boxed()
-    .collect(Collectors.toList())
 );
 ```
 
