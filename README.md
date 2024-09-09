@@ -25,7 +25,9 @@ Executor<Integer, Double> executor = new Executor<>() {
   }
 
   @Override
-  ublic void close() { // DO NOTHING }
+  public void close() { 
+      // DO NOTHING
+  }
 };
 ```
 
@@ -41,8 +43,10 @@ Consumer<Integer, Double> consumer = new Consumer<>() {
   }
 
   @Override
-  ublic void close() { // DO NOTHING }
-}
+  public void close() { 
+      // DO NOTHING 
+  }
+};
 ```
 
 ## Step 4
